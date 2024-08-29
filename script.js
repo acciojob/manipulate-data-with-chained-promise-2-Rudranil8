@@ -19,12 +19,12 @@ function processData() {
   })
   .then(array => {
     return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(array.filter(num => num % 2 === 0)), 1000);
+      setTimeout(() => resolve(array.filter(num => num % 2 === 0)), 2000);
     });
   })
   .then(array => {
     return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(array.map(num => num * 2)), 1000);
+      setTimeout(() => resolve(array.map(num => num * 2)), 3000);
     });
   });
 }
