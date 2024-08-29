@@ -13,22 +13,41 @@
 //       document.getElementById('output').innerText = finalNumbers.join(', ');
 //     });
 
-function processData() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve([1, 2, 3, 4]), 1000);
-  })
-  .then(array => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(array.filter(num => num % 2 === 0)), 2000);
-    });
-  })
-  .then(array => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(array.map(num => num * 2)), 3000);
-    });
-  });
-}
+// function processData() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => resolve([1, 2, 3, 4]), 1000);
+//   })
+//   .then(array => {
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => resolve(array.filter(num => num % 2 === 0)), 2000);
+//     });
+//   })
+//   .then(array => {
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => resolve(array.map(num => num * 2)), 3000);
+//     });
+//   });
+// }
 
-processData().then(result => {
-  document.getElementById('output').innerText = result.join(', ');
+// processData().then(result => {
+//   document.getElementById('output').innerText = result.join(', ');
+// });
+
+let promise = new Promise(function(resolve, reject) {
+  setTimeout(() => resolve([1, 2, 3, 4]), 3000);
+});
+promise.then(function(result) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(result.filter(num => num % 2 === 0));
+    }, 1000);
+  });
+}).then(function(result) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(result.map(num => num * 2));
+    }, 2000);
+  });
+}).then(function(result) {
+  document.getElementById('output').innerHTML = result.join(', ');
 });
