@@ -13,28 +13,22 @@
 //       document.getElementById('output').innerText = finalNumbers.join(', ');
 //     });
 
-function manipulateData() {
+function processData() {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve([1, 2, 3, 4]);
-    }, 3000);
+    setTimeout(() => resolve([1, 2, 3, 4]), 3000);
   })
   .then(array => {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(array.filter(num => num % 2 === 0));
-      }, 1000);
+      setTimeout(() => resolve(array.filter(num => num % 2 === 0)), 1000);
     });
   })
   .then(array => {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(array.map(num => num * 2));
-      }, 2000);
+      setTimeout(() => resolve(array.map(num => num * 2)), 2000);
     });
   });
 }
 
-manipulateData().then(result => {
+processData().then(result => {
   document.getElementById('output').innerText = result.join(', ');
 });
