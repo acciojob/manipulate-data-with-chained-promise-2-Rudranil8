@@ -15,7 +15,7 @@
 
 function processData() {
   return new Promise((resolve, reject) => {
-    setTimeout(() => resolve([1, 2, 3, 4]), 3000);
+    setTimeout(() => resolve([1, 2, 3, 4]), 1000);
   })
   .then(array => {
     return new Promise((resolve, reject) => {
@@ -24,7 +24,7 @@ function processData() {
   })
   .then(array => {
     return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(array.map(num => num * 2)), 2000);
+      setTimeout(() => resolve(array.map(num => num * 2)), 1000);
     });
   });
 }
