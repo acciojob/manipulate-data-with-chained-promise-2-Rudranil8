@@ -33,9 +33,30 @@
 //   document.getElementById('output').innerText = result.join(', ');
 // });
 
+// function processData() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => resolve([1, 2, 3, 4]), 3000);
+//   });
+// }
+
+// processData()
+//   .then(array => {
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => resolve(array.filter(num => num % 2 === 0)), 1000);
+//     });
+//   })
+//   .then(array => {
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => resolve(array.map(num => num * 2)), 2000);
+//     });
+//   })
+//   .then(result => {
+//     document.getElementById('output').innerText = result.join(', ');
+//   });
+
 function processData() {
   return new Promise((resolve, reject) => {
-    setTimeout(() => resolve([1, 2, 3, 4]), 3000);
+    setTimeout(() => resolve([1, 2, 3, 4]), 1000);
   });
 }
 
@@ -47,7 +68,7 @@ processData()
   })
   .then(array => {
     return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(array.map(num => num * 2)), 2000);
+      setTimeout(() => resolve(array.map(num => num * 2)), 1000);
     });
   })
   .then(result => {
