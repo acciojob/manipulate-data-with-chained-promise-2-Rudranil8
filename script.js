@@ -56,7 +56,7 @@
 
 function processData() {
   return new Promise((resolve, reject) => {
-    setTimeout(() => resolve([1, 2, 3, 4]), 1000);
+    setTimeout(() => resolve([1, 2, 3, 4]), 3000); // Change this to 3000
   });
 }
 
@@ -68,7 +68,7 @@ processData()
   })
   .then(array => {
     return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(array.map(num => num * 2)), 1000);
+      setTimeout(() => resolve(array.map(num => num * 2)), 2000); // Change this to 2000
     });
   })
   .then(result => {
